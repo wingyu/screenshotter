@@ -2,6 +2,11 @@
 ##WORK IN PROGRESS
 **TODO: Add description**
 
+## Usage
+Must have PhantomJS running
+```
+phantomjs --wd
+```
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
