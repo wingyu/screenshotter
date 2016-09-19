@@ -1,9 +1,9 @@
 defmodule Screenshotter.Uploader do
   import ExAws
-  def run(title, bucket) do
+  def run(title, bucket, dir) do
     ExAws.S3.put_object(
       bucket,
-      "/uploads/#{title}",
+      "/#{dir}/#{title}",
       File.read!("./screenshots/#{title}")
     )
     |> ExAws.request!
