@@ -1,6 +1,5 @@
 defmodule Screenshotter.InstructorTest do
-  use ExUnit.Case
-
+  use ExUnit.Case, async: true
   import Screenshotter.Instructor, only: [run: 3]
 
   test "#run" do
