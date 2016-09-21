@@ -1,13 +1,14 @@
 defmodule Screenshotter.Instructor do
   @uploader Application.get_env(:screenshotter, :uploader)
+  @fetcher Application.get_env(:screenshotter, :fetcher)
 
   def run(url, bucket, dir) do
-    case Screenshotter.Fetcher.run(url) do
+    case @fetcher.run(url) do
       {:ok, title} ->
         @uploader.run(title, bucket, dir)
         #delete file once made
-      {:error, error} ->
-        IO.puts "Error in fetching screenshot"
+      error ->
+        error
     end
   end
 end

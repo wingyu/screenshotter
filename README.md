@@ -3,10 +3,15 @@
 **TODO: Add description**
 
 ## Usage
+Set AWS env vars
 Must have PhantomJS running
 ```
 phantomjs --wd
 ```
+
+## Running Test
+
+when doing direct API stuff
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
