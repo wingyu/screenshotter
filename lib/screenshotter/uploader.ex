@@ -11,8 +11,8 @@ defmodule Screenshotter.Uploader do
     |> request!
 
     {:ok, "Uploaded #{title}"}
-  catch
-     :error, error -> {:error, error}
+  rescue
+     e -> {:error, e}
   end
 
   defp file_data(dir, title), do: File.read!("#{dir}/#{title}")
