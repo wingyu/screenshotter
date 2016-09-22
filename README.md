@@ -8,6 +8,7 @@
 * Abstract out ExAws functionality from Uploader into an ExAws Client module? may make testing easier in the future
 * Clean up README
 * Monitoring
+*Crop image?
 
 ## Usage
 Set AWS env vars
@@ -18,6 +19,7 @@ phantomjs --wd
 
 ## Running Test
 
+Must have AWS and phantom js running 
 when doing direct API stuff..
 to include Fetcer test
 

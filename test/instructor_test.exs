@@ -6,7 +6,7 @@ defmodule Screenshotter.InstructorTest do
     assert run("random.com", "my-bucket", "uploads")  == \
       {:ok, "Uploaded random.png"}
 
-    assert run("invalid-url", "my-bucket", "uploads")  == \
+    assert run(1, "my-bucket", "uploads")  == \
       {:error, "invalid url"}
 
     assert run("random.com", "invalid-bucket", "uploads")  == \
