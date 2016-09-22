@@ -1,12 +1,13 @@
 # Screenshotter
 ##WORK IN PROGRESS
 **TODO: Add description**
-Put behind HTTP server
-OTP-ify
-Delete file when finished uploading
-Use pipes more in Instructor? use pattern matting to deal with the tuples?
-Abstract out ExAws functionality from Uploader into an ExAws Client module? may make testing easier in the future
-Clean up README
+* Put behind HTTP server
+* OTP-ify
+* Delete file when finished uploading
+* Use pipes more in Instructor? use pattern matting to deal with the tuples?
+* Abstract out ExAws functionality from Uploader into an ExAws Client module? may make testing easier in the future
+* Clean up README
+* Monitoring
 
 ## Usage
 Set AWS env vars
