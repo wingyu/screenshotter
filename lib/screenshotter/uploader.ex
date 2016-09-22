@@ -1,14 +1,13 @@
 defmodule Screenshotter.Uploader do
-  import ExAws, only: [request!: 1]
-  import ExAws.S3, only: [put_object: 3]
+  @ex_aws_client Application.get_env(:screenshotter, :ex_aws_client)
 
   def run(title, bucket, bucket_dir, screenshot_dir \\ "./screenshots") do
-    put_object(
+    @ex_aws_client.put_s3_object(
       bucket,
       "/#{bucket_dir}/#{title}",
       file_data(screenshot_dir, title)
     )
-    |> request!
+    |> @ex_aws_client.make_request!
 
     {:ok, "Uploaded #{title}"}
   rescue

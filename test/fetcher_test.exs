@@ -1,5 +1,5 @@
 defmodule Screenshotter.FetcherTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   import Screenshotter.Fetcher, only: [run: 2]
 
   #All tests will fetch an image

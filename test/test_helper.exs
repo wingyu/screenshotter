@@ -1,3 +1,3 @@
-ExUnit.configure exclude: [:fetch_image, :upload_image]
+ExUnit.configure exclude: [:fetch_image, :aws_api]
 
 ExUnit.start()

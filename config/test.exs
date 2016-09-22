@@ -1,4 +1,4 @@
 use Mix.Config
 
 config :screenshotter, :fetcher, Screenshotter.FetcherMock
-config :screenshotter, :uploader, Screenshotter.UploaderMock
+config :screenshotter, :ex_aws_client, Screenshotter.ExAwsClientMock
