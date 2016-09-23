@@ -19,7 +19,7 @@ defmodule Screenshotter.ExAwsClientTest do
     assert expected == S3.put_object("bucket", "object.json", "data")
   end
 
-  #Use list_buckets to make a non-desctructive/creative request to AWS
+  #Use list_buckets to make a non-destructive/creative request to AWS
   test "#make_request!" do
     assert {:ok, %{body: body}} = ExAws.S3.list_buckets |> ExAws.request
     assert body |> String.contains?("ListAllMyBucketsResult")

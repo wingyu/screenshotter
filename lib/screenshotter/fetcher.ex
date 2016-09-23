@@ -1,8 +1,9 @@
 defmodule Screenshotter.Fetcher do
+  @screenshot_dir Application.get_env(:screenshotter, :screenshot_dir)
   use Hound.Helpers
 
   #needs PhantomJS running
-  def run(base, dir \\ "./screenshots")do
+  def run(base)do
     Hound.start_session
 
     url = "http://" <> base
@@ -14,7 +15,7 @@ defmodule Screenshotter.Fetcher do
 
     navigate_to url
 
-    take_screenshot("#{dir}/#{title}")
+    take_screenshot("#{@screenshot_dir}/#{title}")
 
     # Automatically invoked if the session owner process crashes
     Hound.end_session

@@ -1,14 +1,15 @@
 defmodule Screenshotter.FetcherTest do
   use ExUnit.Case, async: true
-  import Screenshotter.Fetcher, only: [run: 2]
+  import Screenshotter.Fetcher, only: [run: 1]
+  @screenshot_dir Application.get_env(:screenshotter, :screenshot_dir)
 
   #All tests will fetch an image
-  @moduletag :fetch_image
+  @moduletag :fetch_screenshot
 
   test "#run" do
-    assert {:error, _} = run(1, "./test/screenshots")
-    assert {:ok, title} = run("example.com", "./test/screenshots")
+    assert {:error, _} = run(1)
+    assert {:ok, title} = run("example.com")
 
-    assert File.exists?("./test/screenshots/#{title}") == true
+    assert File.exists?("#{@screenshot_dir}/#{title}") == true
   end
 end
