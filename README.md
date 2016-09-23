@@ -1,33 +1,25 @@
 # Screenshotter
-##WORK IN PROGRESS
-**TODO: Add description**
-* Put behind HTTP server
-* OTP-ify
-* Delete file when finished uploading
-* Use pipes more in Instructor? use pattern matting to deal with the tuples? or put uploader into fetcher?
-* Clean up tests
-* Clean up README
-* Monitoring
-*Crop image?
+A simple app that takes a screenshot of a website and then uploads it to your S3 bucket
+
+##TODOs:
+* OTP-ify?
+* Graceful Error-handling?
 
 ## Usage
-Set AWS env vars
-Must have PhantomJS running
-```
-phantomjs --wd
-```
+1. Install dependencies with `mix deps.get`
+2. Setup your `AWS_KEY` & `AWS_SECRET` environment variables
+3. Get PhantomJS running with `phantomjs --wd`
+4. Run `iex -S mix`
+5. Enter `Screenshotter.Instructor.run(url, bucket, dir_in_bucket)`
 
 ## Running Test
+To run the default test suite, run `mix test`
 
-Must have AWS and phantom js running 
-when doing direct API stuff..
-to include Fetcer test
+To run tagged tests (tests that interact with API's or manipulate files)...
+Run `mix test --only tagged_test` (replace `tagged_test` with the name of the tag)
 
-mix test --include fetch_image
-
-Or run only the tagged tests:
-
-mix test --only fetch_image
+Tests that communicate with the AWS API will requires your API key/secret to be set. Tests, such
+as `fetch_screenshot` will require PhantomJS running
 
 ## Installation
 
