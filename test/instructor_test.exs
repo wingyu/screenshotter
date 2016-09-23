@@ -4,11 +4,5 @@ defmodule Screenshotter.InstructorTest do
 
   test "#run" do
     assert run("test.com", "my-bucket", "uploads")  == :ok
-
-    assert run(1, "my-bucket", "uploads")  == \
-      {:error, "invalid url"}
-
-    assert run("random.com", "invalid bucket", "uploads")  == \
-      {:error, %RuntimeError{message: "invalid bucket"}}
   end
 end

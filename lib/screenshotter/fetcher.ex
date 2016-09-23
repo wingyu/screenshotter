@@ -22,8 +22,6 @@ defmodule Screenshotter.Fetcher do
     # Automatically invoked if the session owner process crashes
     Hound.end_session
 
-    {:ok, title}
-  rescue
-    e -> {:error, e}
+    title
   end
 end

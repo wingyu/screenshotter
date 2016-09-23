@@ -12,9 +12,7 @@ defmodule Screenshotter.Uploader do
     )
     |> @ex_aws_client.make_request!
 
-    {:ok, screenshot_path(title)}
-  rescue
-     e -> {:error, e}
+    screenshot_path(title)
   end
 
   defp file_data(title) do
