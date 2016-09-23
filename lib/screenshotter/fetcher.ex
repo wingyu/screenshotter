@@ -3,7 +3,9 @@ defmodule Screenshotter.Fetcher do
   use Hound.Helpers
 
   #needs PhantomJS running
-  def run(base)do
+  def run(base) do
+    IO.puts "Fetching #{base}"
+
     Hound.start_session
 
     url = "http://" <> base

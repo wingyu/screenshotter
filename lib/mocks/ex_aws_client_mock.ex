@@ -1,14 +1,22 @@
 defmodule Screenshotter.ExAwsClientMock do
-  def make_request!("invalid"), do: raise "invalid operation"
+  alias ExAws.{Operation}
+
+  def make_request!(
+    %Operation.S3{
+      body: _, bucket: "invalid bucket",
+      headers: %{"content-encoding" => "application/json"},
+      path: _,
+      http_method: :put
+    }
+  ), do: raise "invalid operation"
   def make_request!(_), do: {:ok, %{body: {}}}
 
 
-  def put_s3_object("invalid bucket", _path, _file_data), do: raise "invalid bucket"
-  def put_s3_object(_bucket, _path, _file_data) do
-    %{
-      body: "data", bucket: "bucket",
+  def put_s3_object(bucket, path, file_data) do
+    %Operation.S3{
+      body: "#{file_data}", bucket: bucket,
       headers: %{"content-encoding" => "application/json"},
-      path: "object.json",
+      path: path,
       http_method: :put
     }
   end

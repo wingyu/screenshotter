@@ -3,8 +3,7 @@ defmodule Screenshotter.InstructorTest do
   import Screenshotter.Instructor, only: [run: 3]
 
   test "#run" do
-    assert run("test.com", "my-bucket", "uploads")  == \
-      {:ok, "Uploaded test.com.png"}
+    assert run("test.com", "my-bucket", "uploads")  == :ok
 
     assert run(1, "my-bucket", "uploads")  == \
       {:error, "invalid url"}

@@ -5,7 +5,7 @@
 * OTP-ify
 * Delete file when finished uploading
 * Use pipes more in Instructor? use pattern matting to deal with the tuples? or put uploader into fetcher?
-* Abstract out ExAws functionality from Uploader into an ExAws Client module? may make testing easier in the future
+* Clean up tests
 * Clean up README
 * Monitoring
 *Crop image?
