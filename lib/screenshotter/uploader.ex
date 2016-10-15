@@ -1,4 +1,6 @@
 defmodule Screenshotter.Uploader do
+  require Logger
+
   @moduledoc "Implements functions to upload files"
 
   @ex_aws_client Application.get_env(:screenshotter, :ex_aws_client)
@@ -8,14 +10,11 @@ defmodule Screenshotter.Uploader do
   @doc "Uploads a file to a specified S3 bucket"
   @spec run(String.t, String.t, String.t) :: String.t
   def run(title, bucket, bucket_dir) do
-    IO.puts "Uploading #{title} to S3"
+    Logger.info "Uploading #{title} to S3"
 
-    @ex_aws_client.put_s3_object(
-      bucket,
-      "/#{bucket_dir}/#{title}",
-      file_data(title)
-    )
-    |> @ex_aws_client.make_request!
+    upload(title, bucket, bucket_dir)
+
+    Logger.info "#{title} uploaded successfully!"
 
     screenshot_path(title)
   end
@@ -23,6 +22,15 @@ defmodule Screenshotter.Uploader do
   defp file_data(title) do
     screenshot_path(title)
     |> File.read!
+  end
+
+  defp upload(title, bucket, bucket_dir) do
+    @ex_aws_client.put_s3_object(
+      bucket,
+      "/#{bucket_dir}/#{title}",
+      file_data(title)
+    )
+    |> @ex_aws_client.make_request!
   end
 
   defp screenshot_path(title), do: "#{@screenshot_dir}/#{title}"

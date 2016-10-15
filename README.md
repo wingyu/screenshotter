@@ -3,9 +3,8 @@ A simple app that takes a screenshot of a website and then uploads it to your S3
 
 ##TODOs:
 * OTP-ify?
-* Graceful Error-handling/Logging?
+* Graceful Error-handling
 * Refactor up Screenshotter.Instructor
-* Add doc attributes and typespecs
 
 ## Usage
 1. Install dependencies with `mix deps.get`

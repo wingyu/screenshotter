@@ -14,7 +14,7 @@ defmodule Screenshotter.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :hound,:ex_aws, :hackney, :poison],
+    [applications: [:logger, :hound,:ex_aws, :hackney, :poison, :logger],
      mod: {Screenshotter, []}]
   end
 

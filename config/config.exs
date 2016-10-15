@@ -3,6 +3,7 @@
 use Mix.Config
 
 config :hound, driver: "phantomjs"
+config :logger, compile_time_purge_level: :info
 config :ex_aws,
   access_key_id: System.get_env("AWS_KEY"),
   secret_access_key: System.get_env("AWS_SECRET"),
