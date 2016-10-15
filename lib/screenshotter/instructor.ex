@@ -5,6 +5,7 @@ defmodule Screenshotter.Instructor do
 
   #Need to refractor this, the returned values from other methods don't feel clean/make sense
   @doc "Runs Screenshotter, which fetches screenshots then uploads it to S3"
+  @spec run(String.t, String.t, String.t) :: atom
   def run(url, bucket, dir) do
     @fetcher.run(url)
     |> Screenshotter.Uploader.run(bucket, dir)

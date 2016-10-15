@@ -6,6 +6,7 @@ defmodule Screenshotter.Uploader do
   @screenshot_dir Application.get_env(:screenshotter, :screenshot_dir)
 
   @doc "Uploads a file to a specified S3 bucket"
+  @spec run(String.t, String.t, String.t) :: String.t
   def run(title, bucket, bucket_dir) do
     IO.puts "Uploading #{title} to S3"
 
