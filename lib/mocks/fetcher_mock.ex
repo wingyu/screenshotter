@@ -1,3 +1,3 @@
 defmodule Screenshotter.FetcherMock do
-  def run(_base), do: "test.com.png"
+  def run(_base), do: {:ok, "test.com.png"}
 end

@@ -9,7 +9,7 @@ defmodule Screenshotter.Fetcher do
   @doc "Grabs and saves screenshots of specified websites"
   @spec run(String.t) :: String.t
   def run(base) do
-    Logger.info "Fetching #{base}"
+    Logger.info "Fetching screenshot #{base}"
 
     Hound.start_session
 
@@ -26,7 +26,9 @@ defmodule Screenshotter.Fetcher do
 
     Logger.info "Screenshot from #{url} received!"
 
-    title
+    {:ok, title}
+  rescue
+    e -> {:error, e}
   end
 
 

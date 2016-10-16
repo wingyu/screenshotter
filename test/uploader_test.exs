@@ -5,6 +5,6 @@ defmodule Screenshotter.UploaderTest do
   test "#run" do
     #Change this to bucket to a config var/ different bucket
     run("test.com.png", "s3-test-vwwong", "uploads") == \
-      "./test/screenshots/test.com.png"
+      {:ok, "./test/screenshots/test.com.png"}
   end
 end

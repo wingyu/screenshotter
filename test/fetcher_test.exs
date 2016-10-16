@@ -8,7 +8,7 @@ defmodule Screenshotter.FetcherTest do
   @moduletag :fetch_screenshot
 
   test "#run" do
-    title = run("example.com")
+    {:ok, title} = run("example.com")
     screenshot_path = "#{@screenshot_dir}/#{title}"
 
     assert File.exists?(screenshot_path) == true
