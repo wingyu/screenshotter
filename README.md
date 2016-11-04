@@ -7,7 +7,7 @@ A simple app that takes a screenshot of a website and then uploads it to your S3
 
 ## Usage
 1. Install dependencies with `mix deps.get`
-2. Setup your `AWS_KEY` & `AWS_SECRET` environment variables
+2. Setup your `AWS_KEY`, `AWS_REGION` & `AWS_SECRET` environment variables
 3. Get PhantomJS running with `phantomjs --wd`
 4. Run `iex -S mix`
 5. Enter `Screenshotter.Instructor.run(url, bucket, dir_in_bucket)`
