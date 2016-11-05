@@ -7,8 +7,8 @@ defmodule Screenshotter.Instructor do
   @cleaner Application.get_env(:screenshotter, :cleaner)
 
   @doc "Runs Screenshotter, which fetches screenshots then uploads it to S3"
-  @spec run(String.t, String.t, String.t) :: atom
-  def run(url, bucket, dir) do
+  @spec run({String.t, String.t, String.t}) :: atom
+  def run({url, bucket, dir}) do
     Logger.info "Initiating screenshot service for #{url}"
 
     @fetcher.run(url)
