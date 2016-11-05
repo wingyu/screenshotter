@@ -7,7 +7,7 @@ defmodule Screenshotter.Fetcher do
 
   #needs PhantomJS running
   @doc "Grabs and saves screenshots of specified websites"
-  @spec run(String.t) :: String.t
+  @spec run(String.t) :: {atom, String.t}
   def run(base) do
     Logger.info "Fetching screenshot #{base}"
 

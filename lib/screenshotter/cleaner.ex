@@ -7,7 +7,7 @@ defmodule Screenshotter.Cleaner do
   @spec run(String.t) :: atom
   def run(path) do
     if File.exists?(path) do
-    Logger.info "Removing #{path} locally"
+      Logger.info "Removing #{path} locally"
 
       File.rm!(path)
     end
