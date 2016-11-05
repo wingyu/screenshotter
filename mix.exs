@@ -6,6 +6,7 @@ defmodule Screenshotter.Mixfile do
      version: "0.1.0",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
+     escript: escript_config,
      start_permanent: Mix.env == :prod,
      deps: deps()]
   end
@@ -34,5 +35,9 @@ defmodule Screenshotter.Mixfile do
       {:poison, "~> 2.0"},
       {:hackney, "~> 1.6"}
     ]
+  end
+
+  defp escript_config do
+    [ main_module: Screenshotter.CLI ]
   end
 end

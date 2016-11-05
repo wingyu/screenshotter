@@ -11,7 +11,7 @@ defmodule Screenshotter.CLI do
     Otherwise it is a URL, the name of your S3 bucket, and directory in the bucket
   """
 
-  def run(argv) do
+  def main(argv) do
     parse_args(argv)
     |> process
   end
