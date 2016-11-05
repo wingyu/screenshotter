@@ -8,7 +8,8 @@ defmodule Screenshotter.CLI do
 
   @doc """
     `argv` can be -h or --help, which returns :help.
-    Otherwise it is a URL, the name of your S3 bucket, and directory in the bucket
+    Otherwise it is a URL, the name of your S3 bucket, and
+    the path to the directory in the bucket
   """
 
   def main(argv) do
@@ -27,8 +28,10 @@ defmodule Screenshotter.CLI do
     case parse do
       { [ help: true ], _, _ }
         -> :help
-      { _, [ url, bucket, dir ], _ }
-        -> { url, bucket, dir}
+      { _, [ url, bucket, path ], _ }
+        -> { url, bucket, path}
+      { _, [ url, bucket ], _ }
+        -> { url, bucket, ""}
       _
         -> :help
     end
@@ -36,11 +39,11 @@ defmodule Screenshotter.CLI do
 
   defp process(:help) do
     IO.puts """
-      usage: screenshotter <url> <bucket> <dir>
+      usage: screenshotter <url> <bucket> </path/to/directory>
     """
   end
 
-  defp process({url, bucket, dir}) do
-    Screenshotter.Instructor.run({url, bucket, dir})
+  defp process({url, bucket, path}) do
+    Screenshotter.Instructor.run({url, bucket, path})
   end
 end
