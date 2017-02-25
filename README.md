@@ -2,7 +2,7 @@
 A simple app that takes a screenshot of a website and then uploads it to your S3 bucket
 
 ##TODOs:
-* OTP-ify
+* Make concurrent & use OTP
 
 ## Usage
 1. Install dependencies with `mix deps.get`
