@@ -18,12 +18,9 @@ defmodule Screenshotter do
   end
 
   def async_run(url) do
-#spawn
-    sync_run(url)
+    spawn( fn() -> sync_run(url) end )
   end
 
   def bulk_run do
-
-#https://elixirschool.com/lessons/libraries/poolboy/
   end
 end
