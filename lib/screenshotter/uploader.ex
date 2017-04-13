@@ -3,8 +3,8 @@ defmodule Screenshotter.Uploader do
 
   @moduledoc "Implements the function to upload files"
 
-  @ex_aws_client Application.get_env(:screenshotter, :ex_aws_client)
-  @screenshot_dir Application.get_env(:screenshotter, :screenshot_dir)
+  @ex_aws_client Application.get_env(:screenshotter, :ex_aws_client, Screenshotter.ExAwsClient)
+  @screenshot_dir Application.get_env(:screenshotter, :screenshot_dir, "./screenshots")
 
   @doc "Uploads a file to a specified S3 bucket"
   @spec run(String.t, String.t, String.t) :: {atom, String.t}

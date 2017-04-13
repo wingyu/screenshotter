@@ -3,8 +3,8 @@ defmodule Screenshotter.Instructor do
 
   @moduledoc "Implements core functionality of Screenshotter"
 
-  @fetcher Application.get_env(:screenshotter, :fetcher)
-  @cleaner Application.get_env(:screenshotter, :cleaner)
+  @fetcher Application.get_env(:screenshotter, :fetcher, Screenshotter.Fetcher)
+  @cleaner Application.get_env(:screenshotter, :cleaner, Screenshotter.Cleaner)
 
   @doc "Runs Screenshotter, which fetches screenshots then uploads it to S3"
   @spec run({String.t, String.t, String.t}) :: atom

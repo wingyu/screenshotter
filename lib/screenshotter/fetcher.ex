@@ -3,7 +3,7 @@ defmodule Screenshotter.Fetcher do
   use Hound.Helpers
 
   @moduledoc "Implements basic functions to fectch screenshots"
-  @screenshot_dir Application.get_env(:screenshotter, :screenshot_dir)
+  @screenshot_dir Application.get_env(:screenshotter, :screenshot_dir, "./screenshots")
 
   #needs PhantomJS running
   @doc "Grabs and saves screenshots of specified websites"
