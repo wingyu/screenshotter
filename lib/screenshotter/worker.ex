@@ -6,14 +6,14 @@ defmodule Screenshotter.Worker do
     GenServer.start_link(__MODULE__, :ok)
   end
 
-  def get_shot(url, bucket, dir) do
-    GenServer.call(__MODULE__, {:get_shot, {url, bucket, dir}})
+  def get_shot(url) do
+    GenServer.call(__MODULE__, {:get_shot, url})
   end
 
   ### CALLBACKS
 
-  def handle_call({:get_shot, param_tuple}, _from, state) do
-    case Screenshotter.Instructor.run(param_tuple) do
+  def handle_call({:get_shot, url}, _from, state) do
+    case Screenshotter.Instructor.run(url) do
       :ok ->
         {:reply, :ok, state}
       _ ->

@@ -9,17 +9,17 @@ defmodule Screenshotter do
     Screenshotter.Supervisor.start_link
   end
 
-  def sync_run(url, bucket, dir) do
+  def sync_run(url) do
     :poolboy.transaction(
       @pool_name,
-      fn(pid) -> :gen_server.call(pid, {:get_shot, {url, bucket, dir}}) end,
+      fn(pid) -> :gen_server.call(pid, {:get_shot, url}) end,
       10000
     )
   end
 
-  def async_run(url, bucket, dir) do
+  def async_run(url) do
 #spawn
-    sync_run(url, bucket, dir)
+    sync_run(url)
   end
 
   def bulk_run do

@@ -3,6 +3,6 @@ defmodule Screenshotter.InstructorTest do
   import Screenshotter.Instructor, only: [run: 1]
 
   test "#run" do
-    assert run({"test.com", "my-bucket", "uploads"})  == :ok
+    assert run("test.com")  == :ok
   end
 end

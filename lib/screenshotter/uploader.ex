@@ -5,13 +5,15 @@ defmodule Screenshotter.Uploader do
 
   @ex_aws_client Application.get_env(:screenshotter, :ex_aws_client)
   @screenshot_dir Application.get_env(:screenshotter, :screenshot_dir)
+  @bucket Application.get_env(:screenshotter, :bucket)
+  @bucket_path Application.get_env(:screenshotter, :bucket_path)
 
   @doc "Uploads a file to a specified S3 bucket"
-  @spec run(String.t, String.t, String.t) :: {atom, String.t}
-  def run(title, bucket, path) do
+  @spec run(String.t) :: {atom, String.t}
+  def run(title) do
     Logger.info "Uploading #{title} to S3"
 
-    upload(title, bucket, path)
+    upload(title)
 
     {:ok, screenshot_path(title)}
   rescue
@@ -24,10 +26,10 @@ defmodule Screenshotter.Uploader do
     |> File.read!
   end
 
-  defp upload(title, bucket, path) do
+  defp upload(title) do
     @ex_aws_client.put_s3_object(
-      bucket,
-      "#{path}/#{title}",
+      @bucket,
+      "#{@bucket_path}/#{title}",
       file_data(title)
     )
     |> @ex_aws_client.make_request!
