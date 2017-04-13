@@ -15,7 +15,8 @@ defmodule Screenshotter.Uploader do
 
     {:ok, screenshot_path(title)}
   rescue
-    e -> {:error, "Error uploading to AWS S3: #{e.message}"}
+    e ->
+      {:error, "Error uploading to AWS S3: #{e.message}", e}
   end
 
   defp file_data(title) do

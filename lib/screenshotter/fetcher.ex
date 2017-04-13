@@ -28,7 +28,8 @@ defmodule Screenshotter.Fetcher do
 
     {:ok, title}
   rescue
-    e -> {:error, e}
+    e ->
+      {:error, "Error fetching screenshot: #{e.message}", e}
   end
 
 

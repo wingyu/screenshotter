@@ -5,9 +5,10 @@ use Mix.Config
 config :hound, driver: "phantomjs"
 config :logger, compile_time_purge_level: :info
 config :ex_aws,
-  access_key_id: System.get_env("AWS_KEY"),
-  secret_access_key: System.get_env("AWS_SECRET"),
+  access_key_id: System.get_env("AWS_ACCESS_KEY_ID"),
+  secret_access_key: System.get_env("AWS_SECRET_ACCESS_KEY"),
   region: System.get_env("AWS_REGION")
+
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,

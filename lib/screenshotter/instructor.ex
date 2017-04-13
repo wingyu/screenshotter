@@ -20,8 +20,8 @@ defmodule Screenshotter.Instructor do
 
   #Abstract this out into its own module?
   defp decode_response({:ok, body}), do: body
-  defp decode_response({:error, body}) do
+  defp decode_response({:error, body, error}) do
     Logger.error body
-    #raise body
+    raise error
   end
 end
