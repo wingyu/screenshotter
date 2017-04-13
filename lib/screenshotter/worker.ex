@@ -7,7 +7,7 @@ defmodule Screenshotter.Worker do
   end
 
   def get_shot(url) do
-    GenServer.call(__MODULE__, {:get_shot, url})
+    GenServer.call(__MODULE__, {:get_shot, url}, :infinity)
   end
 
   ### CALLBACKS

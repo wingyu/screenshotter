@@ -13,7 +13,7 @@ defmodule Screenshotter do
     :poolboy.transaction(
       @pool_name,
       fn(pid) -> :gen_server.call(pid, {:get_shot, url}) end,
-      10000
+      :infinity
     )
   end
 
