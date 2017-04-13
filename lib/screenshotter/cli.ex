@@ -28,10 +28,8 @@ defmodule Screenshotter.CLI do
     case parse do
       { [ help: true ], _, _ }
         -> :help
-      { _, [ url, bucket, path ], _ }
-        -> { url, bucket, path}
-      { _, [ url, bucket ], _ }
-        -> { url, bucket, ""}
+      { _, [ url ], _ }
+        -> url
       _
         -> :help
     end
@@ -43,7 +41,7 @@ defmodule Screenshotter.CLI do
     """
   end
 
-  defp process({url, bucket, path}) do
-    Screenshotter.Instructor.run({url, bucket, path})
+  defp process(url) do
+    Screenshotter.Instructor.run(url)
   end
 end

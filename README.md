@@ -1,17 +1,28 @@
 # Screenshotter
-A simple app that takes a screenshot of a website and then uploads it to your S3 bucket
+An experimental pet project that takes a screenshot of a website and then uploads it to your S3 bucket
 
-##TODOs:
-* Make concurrent & use OTP
-
-## Usage
+## Set Up
 1. Install dependencies with `mix deps.get`
-2. Setup your `AWS_KEY`, `AWS_REGION` & `AWS_SECRET` environment variables
+2. Setup your `AWS_ACCESS_KEY_ID`, `AWS_REGION` & `AWS_SECRET_ACCESS_KEY` environment variables
 3. Get PhantomJS running with `phantomjs --wd`
-4. Run `mix escript.build`
-5. Run `./screenshotter <any-url> <your-s3-bucket> </path/to/directory>`.
-The third argument will default to root and passing in `--h` or `--help` as the only arguments
- will return instructions
+4. Configure your S3 bucket and path details in the config files
+
+#### Running via mix
+Run `iex -S mix` and then...
+```
+Screenshotter.sync_run("www.google.com") #fetches from a URL synchronously
+
+Screenshotter.async_run("www.google.com") #fetch from a URL asynchronously
+
+Screenshotter.bulk_run(["www.google.com","www.reddit.com"]) #fetch a list of URLs asynchronously
+```
+
+#### Running synchronously via script
+1. Run `mix escript.build`
+2. Run `./screenshotter <url> `.
+
+Passing in `--h` or `--help` as the only arguments will return instructions
+##### TODO: implement for #bulk_run
 
 ## Running Test
 To run the default test suite, run `mix test`
