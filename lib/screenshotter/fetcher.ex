@@ -14,7 +14,7 @@ defmodule Screenshotter.Fetcher do
     Hound.start_session
 
     url = "http://" <> base
-    timestamp = generate_timestamp
+    timestamp = generate_timestamp()
     title = "#{base}-#{timestamp}.png"
 
     navigate_to url

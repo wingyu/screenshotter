@@ -22,6 +22,6 @@ defmodule Screenshotter.Instructor do
   defp decode_response({:ok, body}), do: body
   defp decode_response({:error, body}) do
     Logger.error body
-    raise body
+    #raise body
   end
 end

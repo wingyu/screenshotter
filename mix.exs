@@ -6,7 +6,7 @@ defmodule Screenshotter.Mixfile do
      version: "0.1.0",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
-     escript: escript_config,
+     escript: escript_config(),
      start_permanent: Mix.env == :prod,
      deps: deps()]
   end
@@ -15,8 +15,9 @@ defmodule Screenshotter.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :hound,:ex_aws, :hackney, :poison, :logger],
-     mod: {Screenshotter, []}]
+    [applications: [:logger, :hound,:ex_aws, :hackney, :poison, :poolboy],
+     mod: {Screenshotter, []}
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -33,7 +34,8 @@ defmodule Screenshotter.Mixfile do
       {:hound, "~> 1.0"},
       {:ex_aws, "~> 1.0.0-beta0"},
       {:poison, "~> 2.0"},
-      {:hackney, "~> 1.6"}
+      {:hackney, "~> 1.6"},
+      {:poolboy, "~> 1.5"}
     ]
   end
 

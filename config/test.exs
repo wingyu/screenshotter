@@ -5,3 +5,6 @@ config :screenshotter, :cleaner, Screenshotter.CleanerMock
 config :screenshotter, :ex_aws_client, Screenshotter.ExAwsClientMock
 
 config :screenshotter, :screenshot_dir, "./test/screenshots"
+
+config :screenshotter, :size, 2
+config :screenshotter, :max_overflow, 1
