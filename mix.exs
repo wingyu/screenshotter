@@ -7,11 +7,12 @@ defmodule Screenshotter.Mixfile do
       version: "0.1.0",
       elixir: "~> 1.3",
       build_embedded: Mix.env == :prod,
-      escript: escript_config,
+      escript: escript_config(),
       start_permanent: Mix.env == :prod,
       description: "A application that takes a screenshot of a website then uploads it into S3",
+      docs: [extras: ["README.md"]]
       deps: deps(),
-      package: package
+      package: package()
     ]
   end
 
@@ -38,7 +39,9 @@ defmodule Screenshotter.Mixfile do
       {:hound, "~> 1.0"},
       {:ex_aws, "~> 1.0.0-beta0"},
       {:poison, "~> 2.0"},
-      {:hackney, "~> 1.6"}
+      {:hackney, "~> 1.6"},
+      {:earmark, ">= 0.0.0", only: :dev},
+      {:ex_doc, ">= 0.0.0", only: :dev},
     ]
   end
 
