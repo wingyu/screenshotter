@@ -21,6 +21,11 @@ defmodule Screenshotter do
     spawn( fn() -> sync_run(url) end )
   end
 
-  def bulk_run do
+  def bulk_run(url_list) do
+    tasks = Enum.map(url_list, fn(url) ->
+      Task.async(fn -> sync_run(url) end)
+    end)
+
+    Enum.each(tasks, fn(task) -> IO.puts(Task.await(task, @timeout)) end)
   end
 end
