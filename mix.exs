@@ -10,7 +10,7 @@ defmodule Screenshotter.Mixfile do
       escript: escript_config(),
       start_permanent: Mix.env == :prod,
       description: "A application that takes a screenshot of a website then uploads it into S3",
-      docs: [extras: ["README.md"]]
+      docs: [extras: ["README.md"]],
       deps: deps(),
       package: package()
     ]
