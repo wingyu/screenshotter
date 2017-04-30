@@ -1,5 +1,5 @@
 # Screenshotter
-An experimental pet project that takes a screenshot of a website and then uploads it to your S3 bucket
+A project to experiment with Elixir and OTP. Screenshotter takes a screenshot of a website and then uploads it to your S3 bucket
 
 ## Set Up
 1. Install dependencies with `mix deps.get`
@@ -32,24 +32,3 @@ Run `mix test --only tagged_test` (replace `tagged_test` with the name of the ta
 
 Tests that communicate with the AWS API will requires your API key/secret to be set. Tests, such
 as `fetch_screenshot` will require PhantomJS running
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add `screenshotter` to your list of dependencies in `mix.exs`:
-
-    ```elixir
-    def deps do
-      [{:screenshotter, "~> 0.1.0"}]
-    end
-    ```
-
-  2. Ensure `screenshotter` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:screenshotter]]
-    end
-    ```
-
