@@ -1,5 +1,5 @@
 # Screenshotter
-A project to experiment with Elixir and OTP. Screenshotter takes a screenshot of a website and then uploads it to your S3 bucket
+A project to experiment with Elixir and OTP. Screenshotter takes a screenshot of a website and then uploads it to your S3 bucket (Just a learning exercise for Elixir)
 
 ## Set Up
 1. Install dependencies with `mix deps.get`
